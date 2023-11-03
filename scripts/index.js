@@ -1,6 +1,7 @@
 import WeatherService from "./WeatherService.js";
 import ValidationService from "./ValidationService.js";
 import {latitudeValidator, longitudeValidator} from "./inputValidators.js";
+import Widget from "../components/widget.js";
 
 const submitBtn = document.getElementById('submit-btn');
 const latitudeInput = document.getElementById('latitude');
@@ -11,6 +12,12 @@ const latitudeError = document.getElementById('lat-err');
 const longitudeError = document.getElementById('lon-err');
 const dataError = document.getElementById('dta-err');
 const temperature = document.getElementById('temp');
+
+const pagesList = document.getElementById('pages');
+
+
+const widgets = [];
+let currentPage = 0;
 
 const handleError = (status) => {
     switch (status) {
@@ -24,6 +31,27 @@ const handleError = (status) => {
 const checkIfValid = () => {
     submitBtn.disabled = !latitudeInput.value || !longitudeInput.value ||
         latitudeError.innerText || longitudeError.innerText;
+}
+
+const changePage = (next) => {
+    currentPage = next;
+    updateWidget()
+}
+
+const updateWidget = () => {
+    temperature.innerText = `${widgets[currentPage - 1].temperature}°`
+}
+
+const addWidget = (data) => {
+    widgets.push(new Widget(data.main.temp))
+    changePage(widgets.length)
+    const newPage = document.createElement('li');
+    newPage.className = 'data__page'
+    newPage.innerText = currentPage
+    newPage.addEventListener('click', event => {
+        changePage(Number(event.target.innerText))
+    })
+    pagesList.appendChild(newPage)
 }
 
 latitudeInput.addEventListener('input', event => {
@@ -55,8 +83,7 @@ submitBtn.addEventListener('click', event => {
     event.preventDefault();
     WeatherService.fetchWeather(latitudeInput?.value, longitudeInput?.value)
         .then(data => {
-            temperature.innerText = `${data.main.temp.toFixed(1)}°`
-            console.log(data);
+            addWidget(data)
         })
         .catch(err => {
             dataError.innerText = handleError(err.status);

@@ -60,5 +60,19 @@
       width: 48px;
       align-self: center;
     }
+
+    &__pages {
+      display: flex;
+    }
+
+    &__page {
+      border: solid 1px white;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255,255,255,0.1);
+      }
+    }
   }
 }
