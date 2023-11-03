@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.weather-form .inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.weather-form .inputs__item {
+  display: flex;
+  flex-direction: column;
+}
+.weather-form .inputs__label {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+.weather-form .inputs__input-field {
+  width: 100%;
+  font-size: 38px;
+  border: solid 2px black;
+  border-radius: 8px;
+  padding: 5px 15px;
+}
+.weather-form .inputs__error {
+  color: #ff004d;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.weather-form__btn {
+  width: 100%;
+  padding: 20px 144px;
+  border: none;
+  border-radius: 8px;
+  background: #00A3FF;
+  font-size: 40px;
+  color: #ffffff;
+  margin: 20px 0;
+}
+.weather-form__btn:disabled {
+  background-color: #5a6164;
+  opacity: 0.5;
+}
+.weather-form .data {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.weather-form .data__error {
+  color: red;
+}
+.weather-form .data__load {
+  width: 48px;
+  align-self: center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  animation-name: rotation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 100vh;
+  font-size: 40px;
+  background-color: #222222;
+}
+
+/*# sourceMappingURL=index.css.map */

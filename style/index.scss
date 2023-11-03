@@ -1,0 +1,17 @@
+@import "purge";
+@import "weather-form";
+@import "rotating";
+@import "colors";
+
+body {
+  display: flex;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 100vh;
+  font-size: 40px;
+  background-color: $color-dark-gray;
+}
+
+
