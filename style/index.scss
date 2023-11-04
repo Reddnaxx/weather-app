@@ -2,16 +2,41 @@
 @import "weather-form";
 @import "rotating";
 @import "colors";
+@import "data";
 
 body {
   display: flex;
   align-items: center;
   font-family: Inter, sans-serif;
-  max-width: 720px;
-  margin: 0 auto;
-  height: 100vh;
   font-size: 40px;
   background-color: $color-dark-gray;
+  height: 100vh;
 }
 
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+main {
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 50px;
+  margin: 0 auto;
+  border: 2px solid $color-gray;
+  border-radius: 20px;
+  padding: 0 40px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 812px) {
+  main {
+    gap: 20px;
+  }
+}
 

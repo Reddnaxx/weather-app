@@ -11,10 +11,10 @@ const loadText = document.getElementById('load');
 const latitudeError = document.getElementById('lat-err');
 const longitudeError = document.getElementById('lon-err');
 const dataError = document.getElementById('dta-err');
-const temperature = document.getElementById('temp');
 
+const widgetComponent = document.getElementById('widget');
+const showMapButton = document.getElementById('show-map');
 const pagesList = document.getElementById('pages');
-
 
 const widgets = [];
 let currentPage = 0;
@@ -35,15 +35,11 @@ const checkIfValid = () => {
 
 const changePage = (next) => {
     currentPage = next;
-    updateWidget()
-}
-
-const updateWidget = () => {
-    temperature.innerText = `${widgets[currentPage - 1].temperature}°`
+    Widget.update(widgets[currentPage - 1])
 }
 
 const addWidget = (data) => {
-    widgets.push(new Widget(data.main.temp))
+    widgets.push(new Widget(data))
     changePage(widgets.length)
     const newPage = document.createElement('li');
     newPage.className = 'data__page'
@@ -80,10 +76,12 @@ longitudeInput.addEventListener('input', event => {
 
 submitBtn.addEventListener('click', event => {
     loadText.hidden = false;
+    widgetComponent.hidden = true;
     event.preventDefault();
     WeatherService.fetchWeather(latitudeInput?.value, longitudeInput?.value)
         .then(data => {
             addWidget(data)
+            console.log(data)
         })
         .catch(err => {
             dataError.innerText = handleError(err.status);
@@ -91,5 +89,11 @@ submitBtn.addEventListener('click', event => {
         })
         .finally(() => {
             loadText.hidden = true;
+            widgetComponent.hidden = false;
         });
+})
+
+showMapButton.addEventListener('click', event => {
+    map.hidden = !map.hidden;
+    event.target.innerText = map.hidden ? "Показать карту" : "Скрыть карту"
 })

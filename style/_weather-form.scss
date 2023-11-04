@@ -1,6 +1,8 @@
 @import "colors";
 
 .weather-form {
+  padding: 28px 0;
+
   .inputs {
     display: flex;
     flex-direction: column;
@@ -33,46 +35,21 @@
 
   &__btn {
     width: 100%;
-    padding: 20px 144px;
+    padding: 15px;
     border: none;
     border-radius: 8px;
     background: $color-main;
-    font-size: 40px;
+    font-size: 32px;
     color: $color-white;
     margin: 20px 0;
+
+    &:hover {
+      opacity: 0.9;
+    }
 
     &:disabled {
       background-color: $color-gray;
       opacity: 0.5;
-    }
-  }
-
-  .data {
-    display: flex;
-    flex-direction: column;
-    color: $color-white;
-
-    &__error {
-      color: red;
-    }
-
-    &__load {
-      width: 48px;
-      align-self: center;
-    }
-
-    &__pages {
-      display: flex;
-    }
-
-    &__page {
-      border: solid 1px white;
-      padding: 10px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: rgba(255,255,255,0.1);
-      }
     }
   }
 }

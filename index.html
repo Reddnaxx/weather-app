@@ -22,17 +22,37 @@
             </li>
         </ul>
         <button type="submit" class="weather-form__btn" id="submit-btn" disabled>Показать погоду</button>
-        <div class="weather-form__data data">
-            <img src="img/load.svg" alt="Загрузка..." class="data__load rotating" id="load" hidden>
-            <p class="data__error" id="dta-err"></p>
-            <div class="data__widget widget">
-                <p class="widget__temp" id="temp"></p>
-            </div>
-            <ul class="data__pages" id="pages">
-            </ul>
-        </div>
     </form>
+    <div class="data">
+        <img src="img/load.svg" alt="Загрузка..." class="data__load rotating" id="load" hidden>
+        <p class="data__error" id="dta-err"></p>
+        <div class="data__widget widget" id="widget" hidden>
+            <div class="widget__main">
+                <div class="widget__left-side">
+                    <p class="widget__region" id="region"></p>
+                    <p class="widget__temp" id="temp"></p>
+                </div>
+                <div class="widget__right-side">
+                    <p class="widget__weather" id="weather"></p>
+                    <div class="widget__img-clip">
+                        <img src="" alt="Погода" class="widget__img" id="weather-img">
+                    </div>
+                </div>
+            </div>
+            <div class="widget__additional">
+                <p class="widget__humidity" id="humidity">22</p>
+                <p class="widget__wind" id="wind">6</p>
+            </div>
+            <div class="widget__active">
+                <button type="button" class="widget__show-map-btn" id="show-map">Показать карту</button>
+                <div class="widget__map" id="map" hidden></div>
+            </div>
+        </div>
+        <ul class="data__pages" id="pages"></ul>
+    </div>
 </main>
 <script src="scripts/index.js" type="module"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=417aab9d-bdc1-4609-bc28-d5b129477e07"
+        type="text/javascript"></script>
 </body>
 </html>
