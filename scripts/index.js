@@ -6,7 +6,7 @@ import Widget from "../components/widget.js";
 const submitBtn = document.getElementById('submit-btn');
 const latitudeInput = document.getElementById('latitude');
 const longitudeInput = document.getElementById('longitude');
-const loadText = document.getElementById('load');
+const loadComponent = document.getElementById('load');
 
 const latitudeError = document.getElementById('lat-err');
 const longitudeError = document.getElementById('lon-err');
@@ -75,8 +75,8 @@ longitudeInput.addEventListener('input', event => {
 })
 
 submitBtn.addEventListener('click', event => {
-    loadText.hidden = false;
-    widgetComponent.hidden = true;
+    loadComponent.hidden = false;
+    widgetComponent.style.visibility = 'hidden';
     event.preventDefault();
     WeatherService.fetchWeather(latitudeInput?.value, longitudeInput?.value)
         .then(data => {
@@ -85,11 +85,10 @@ submitBtn.addEventListener('click', event => {
         })
         .catch(err => {
             dataError.innerText = handleError(err.status);
-            console.log(err);
         })
         .finally(() => {
-            loadText.hidden = true;
-            widgetComponent.hidden = false;
+            loadComponent.hidden = true;
+            widgetComponent.style.visibility = 'visible';
         });
 })
 

@@ -73,6 +73,7 @@ ul {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 400px;
+  min-height: 200px;
   border-bottom: solid 1px #5a6164;
 }
 .widget__main {
@@ -156,10 +157,9 @@ ul {
   display: flex;
   flex-direction: column;
   color: #ffffff;
-  min-height: 350px;
   position: relative;
 }
-@media (max-width: 812px) {
+@media (max-width: 1060px) {
   .data {
     border-top: solid 4px #5a6164;
   }
@@ -209,8 +209,9 @@ button:disabled {
 
 main {
   max-width: 90%;
+  min-width: 500px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 50px;
   margin: 0 auto;
@@ -220,9 +221,10 @@ main {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 812px) {
+@media (max-width: 1060px) {
   main {
     gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

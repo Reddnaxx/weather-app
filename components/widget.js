@@ -23,7 +23,7 @@ export default class Widget{
         temperatureComponent.innerText = `${widget.temperature}°C`;
         weatherComponent.innerText = widget.weather;
         windComponent.innerText = `${widget.wind} м/с`;
-        humidityComponent.innerText = widget.humidity;
+        humidityComponent.innerText = `${widget.humidity}%`;
         iconComponent.src = `https://openweathermap.org/img/wn/${widget.icon}@2x.png`;
         setMapCenter(widget.coord.lat, widget.coord.lon);
     }

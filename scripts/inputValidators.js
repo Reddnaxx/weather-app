@@ -3,8 +3,8 @@ export const latitudeValidator = () => {
         if (error) {
             return error
         }
-        if (0 > value || value > 90) {
-            return new Error('Значение должно быть в пределах от 0° до 90°');
+        if (-90 > value || value > 90) {
+            return new Error('Значение должно быть в пределах от -90° до 90°');
         }
     }
 }
@@ -14,8 +14,8 @@ export const longitudeValidator = () => {
         if (error) {
             return error
         }
-        if (0 > value || value > 180) {
-            return new Error('Значение должно быть в пределах от 0° до 180°');
+        if (-180 > value || value > 180) {
+            return new Error('Значение должно быть в пределах от -180° до 180°');
         }
     }
 }

@@ -23,8 +23,9 @@ button {
 
 main {
   max-width: 90%;
+  min-width: 500px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 50px;
   margin: 0 auto;
@@ -34,9 +35,10 @@ main {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 812px) {
+@media (max-width: 1060px) {
   main {
     gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

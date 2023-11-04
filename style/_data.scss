@@ -5,10 +5,9 @@
   display: flex;
   flex-direction: column;
   color: $color-white;
-  min-height: 350px;
   position: relative;
-  
-  @media (max-width: 812px) {
+
+  @media (max-width: 1060px) {
     border-top: solid 4px $color-gray;
   }
 

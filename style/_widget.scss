@@ -4,6 +4,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 400px;
+  min-height: 200px;
   border-bottom: solid 1px $color-gray;
 
   &__main {
