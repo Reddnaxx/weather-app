@@ -2,43 +2,43 @@
 @import "widget";
 
 .data {
-  display: flex;
-  flex-direction: column;
-  color: $color-white;
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	color: $color-white;
+	position: relative;
 
-  @media (max-width: 1060px) {
-    border-top: solid 4px $color-gray;
-  }
+	@media (max-width: 1060px) {
+		border-top: solid 4px $color-gray;
+	}
 
-  &__error {
-    color: red;
-  }
+	&__error {
+		color: red;
+	}
 
-  &__load {
-    width: 48px;
-    align-self: center;
-    position: absolute;
-    top: 35%;
-    transform: translate(0, -50%);
-  }
+	&__load {
+		width: 48px;
+		align-self: center;
+		position: absolute;
+		top: 35%;
+		transform: translate(0, -50%);
+	}
 
-  &__pages {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 5px;
-    padding: 15px;
-    margin-top: auto;
-  }
+	&__pages {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		gap: 5px;
+		padding: 15px;
+		margin-top: auto;
+	}
 
-  &__page {
-    border: solid 1px white;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
+	&__page {
+		border: solid 1px white;
+		padding: 10px;
+		cursor: pointer;
+		text-align: center;
 
-    &:hover {
-      background-color: rgba(255,255,255,0.1);
-    }
-  }
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+	}
 }

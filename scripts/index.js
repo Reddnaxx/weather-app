@@ -20,79 +20,79 @@ const widgets = [];
 let currentPage = 0;
 
 const handleError = (status) => {
-    switch (status) {
-        case 401:
-            return "Не авторизован";
-        default:
-            return "Ошибка";
-    }
+	switch (status) {
+		case 401:
+			return "Не авторизован";
+		default:
+			return "Ошибка";
+	}
 }
 
 const checkIfValid = () => {
-    submitBtn.disabled = !latitudeInput.value || !longitudeInput.value ||
-        latitudeError.innerText || longitudeError.innerText;
+	submitBtn.disabled = !latitudeInput.value || !longitudeInput.value ||
+		latitudeError.innerText || longitudeError.innerText;
 }
 
 const changePage = (next) => {
-    currentPage = next;
-    Widget.update(widgets[currentPage - 1])
+	currentPage = next;
+	Widget.update(widgets[currentPage - 1])
 }
 
 const addWidget = (data) => {
-    widgets.push(new Widget(data))
-    changePage(widgets.length)
-    const newPage = document.createElement('li');
-    newPage.className = 'data__page'
-    newPage.innerText = currentPage
-    newPage.addEventListener('click', event => {
-        changePage(Number(event.target.innerText))
-    })
-    pagesList.appendChild(newPage)
+	widgets.push(new Widget(data))
+	changePage(widgets.length)
+	const newPage = document.createElement('li');
+	newPage.className = 'data__page'
+	newPage.innerText = currentPage
+	newPage.addEventListener('click', event => {
+		changePage(Number(event.target.innerText))
+	})
+	pagesList.appendChild(newPage)
 }
 
-latitudeInput.addEventListener('input', event => {
-    const error = ValidationService.validate(
-        {
-            value: latitudeInput.value,
-            required: latitudeInput.required
-        },
-        latitudeValidator()
-    )
-    latitudeError.innerText = error || '';
-    checkIfValid();
+latitudeInput.addEventListener('input', () => {
+	const error = ValidationService.validate(
+		{
+			value: latitudeInput.value,
+			required: latitudeInput.required
+		},
+		latitudeValidator()
+	)
+	latitudeError.innerText = error || '';
+	checkIfValid();
 })
 
-longitudeInput.addEventListener('input', event => {
-    const error = ValidationService.validate(
-        {
-            value: longitudeInput.value,
-            required: longitudeInput.required
-        },
-        longitudeValidator()
-    )
-    longitudeError.innerText = error || '';
-    checkIfValid();
+longitudeInput.addEventListener('input', () => {
+	const error = ValidationService.validate(
+		{
+			value: longitudeInput.value,
+			required: longitudeInput.required
+		},
+		longitudeValidator()
+	)
+	longitudeError.innerText = error || '';
+	checkIfValid();
 })
 
 submitBtn.addEventListener('click', event => {
-    loadComponent.hidden = false;
-    widgetComponent.style.visibility = 'hidden';
-    event.preventDefault();
-    WeatherService.fetchWeather(latitudeInput?.value, longitudeInput?.value)
-        .then(data => {
-            addWidget(data)
-            console.log(data)
-        })
-        .catch(err => {
-            dataError.innerText = handleError(err.status);
-        })
-        .finally(() => {
-            loadComponent.hidden = true;
-            widgetComponent.style.visibility = 'visible';
-        });
+	loadComponent.hidden = false;
+	widgetComponent.style.visibility = 'hidden';
+	event.preventDefault();
+	WeatherService.fetchWeather(latitudeInput?.value, longitudeInput?.value)
+		.then(data => {
+			addWidget(data)
+			console.log(data)
+		})
+		.catch(err => {
+			dataError.innerText = handleError(err.status);
+		})
+		.finally(() => {
+			loadComponent.hidden = true;
+			widgetComponent.style.visibility = 'visible';
+		});
 })
 
 showMapButton.addEventListener('click', event => {
-    map.hidden = !map.hidden;
-    event.target.innerText = map.hidden ? "Показать карту" : "Скрыть карту"
+	map.hidden = !map.hidden;
+	event.target.innerText = map.hidden ? "Показать карту" : "Скрыть карту"
 })

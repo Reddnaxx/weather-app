@@ -1,55 +1,55 @@
 @import "colors";
 
 .weather-form {
-  padding: 28px 0;
+	padding: 28px 0;
 
-  .inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+	.inputs {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
 
-    &__item {
-      display: flex;
-      flex-direction: column;
-    }
+		&__item {
+			display: flex;
+			flex-direction: column;
+		}
 
-    &__label {
-      margin-bottom: 10px;
-      color: $color-white;
-    }
+		&__label {
+			margin-bottom: 10px;
+			color: $color-white;
+		}
 
-    &__input-field {
-      width: 100%;
-      font-size: 38px;
-      border: solid 2px black;
-      border-radius: 8px;
-      padding: 5px 15px;
-    }
+		&__input-field {
+			width: 100%;
+			font-size: 38px;
+			border: solid 2px black;
+			border-radius: 8px;
+			padding: 5px 15px;
+		}
 
-    &__error {
-      color: $color-error;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-  }
+		&__error {
+			color: $color-error;
+			font-size: 16px;
+			margin-top: 10px;
+		}
+	}
 
-  &__btn {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    background: $color-main;
-    font-size: 32px;
-    color: $color-white;
-    margin: 20px 0;
+	&__btn {
+		width: 100%;
+		padding: 15px;
+		border: none;
+		border-radius: 8px;
+		background: $color-main;
+		font-size: 32px;
+		color: $color-white;
+		margin: 20px 0;
 
-    &:hover {
-      opacity: 0.9;
-    }
+		&:hover {
+			opacity: 0.9;
+		}
 
-    &:disabled {
-      background-color: $color-gray;
-      opacity: 0.5;
-    }
-  }
+		&:disabled {
+			background-color: $color-gray;
+			opacity: 0.5;
+		}
+	}
 }
