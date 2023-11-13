@@ -5,6 +5,7 @@
     <title>Погода</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="style/index.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <main>
@@ -23,7 +24,7 @@
         </ul>
         <button type="submit" class="weather-form__btn" id="submit-btn" disabled>Показать погоду</button>
     </form>
-    <div class="data">
+    <div class="data" style="display: none" id="data">
         <img src="img/load.svg" alt="Загрузка..." class="data__load rotating" id="load" hidden>
         <p class="data__error" id="dta-err"></p>
         <div class="data__widget widget" id="widget" style="visibility: hidden">
@@ -35,13 +36,13 @@
                 <div class="widget__right-side">
                     <p class="widget__weather" id="weather"></p>
                     <div class="widget__img-clip">
-                        <img src="" alt="Погода" class="widget__img" id="weather-img">
+                        <img src="#" alt="Погода" class="widget__img" id="weather-img">
                     </div>
                 </div>
             </div>
             <div class="widget__additional">
-                <p class="widget__humidity" id="humidity"></p>
-                <p class="widget__wind" id="wind"></p>
+                <p class="widget__humidity" id="humidity">NaN</p>
+                <p class="widget__wind" id="wind">NaN</p>
             </div>
             <div class="widget__active">
                 <button type="button" class="widget__show-map-btn" id="show-map">Показать карту</button>
@@ -52,7 +53,6 @@
     </div>
 </main>
 <script src="scripts/index.js" type="module"></script>
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=417aab9d-bdc1-4609-bc28-d5b129477e07"
-        type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=417aab9d-bdc1-4609-bc28-d5b129477e07"></script>
 </body>
 </html>

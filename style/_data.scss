@@ -6,6 +6,20 @@
 	flex-direction: column;
 	color: $color-white;
 	position: relative;
+	padding-top: 20px;
+	padding-right: 10px;
+
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: $color-gray;
+	}
+
+	::-webkit-scrollbar-thumb {
+		box-shadow: inset 0 0 8px $color-main;
+	}
 
 	@media (max-width: 1060px) {
 		border-top: solid 4px $color-gray;
@@ -36,9 +50,16 @@
 		padding: 10px;
 		cursor: pointer;
 		text-align: center;
+		transition-duration: 0.2s;
+
+		&_active {
+			background-color: $color-main;
+			opacity: 0.8;
+		}
 
 		&:hover {
-			background-color: rgba(255, 255, 255, 0.1);
+			background-color: $color-gray;
+			opacity: 0.5;
 		}
 	}
 }
