@@ -20,13 +20,9 @@ const dataComponent = document.getElementById('data');
 const widgets = [];
 let currentPage = 0;
 
-const handleError = (status) => {
-    switch (status) {
-        case 401:
-            return "Не авторизован";
-        default:
-            return "Ошибка";
-    }
+const handleError = (err) => {
+    console.log(err)
+    return "Ошибка"
 }
 
 const checkIfValid = () => {
@@ -97,7 +93,7 @@ submitBtn.addEventListener('click', event => {
             console.log(data)
         })
         .catch(err => {
-            dataError.innerText = handleError(err.status);
+            dataError.innerText = handleError(err);
         })
         .finally(() => {
             loadComponent.hidden = true;
